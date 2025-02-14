@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>至亲爱的你 ❤️</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(45deg, #ff7eb9, #ff758c);
+            font-family: 'Microsoft YaHei', sans-serif;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            z-index: 1;
+        }
+
+        h1 {
+            color: #fff;
+            font-size: 3em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 20px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .message {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+            max-width: 500px;
+            margin: 20px;
+        }
+
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: #ff4b77;
+            margin: 15px 0;
+        }
+
+        .heart-btn {
+            background: #ff4b77;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .heart-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(255,75,119,0.4);
+        }
+
+        .hearts {
+            position: fixed;
+            top: -20px;
+            animation: fall linear infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>❤️ 情人节快乐！ ❤️</h1>
+        <div class="message">
+            <p>亲爱的文静小妹妹，</p>
+            <p>遇见你的每一天都像是情人节</p>
+            <p>你的笑容是我每天的阳光</p>
+            <p>你的温柔是我最温暖的港湾</p>
+            <p>在这个特别的日子里，我想对你说...</p>
+            <p>我❤️你！</p>
+            <button class="heart-btn" onclick="showResponse()">点击接收我的心意</button>
+        </div>
+    </div>
+
+    <script>
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+            heart.classList.add('hearts');
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+
+        setInterval(createHeart, 300);
+
+        function showResponse() {
+            const responses = [
+                "我愿意和你一起走过每一个明天",
+                "你是我最美好的相遇",
+                "让我们共同书写属于我们的故事",
+                "你的存在让我的世界更完整",
+                "往后余生，请多指教"
+            ];
+            const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+            alert(randomResponse);
+        }
+    </script>
+</body>
+</html>
